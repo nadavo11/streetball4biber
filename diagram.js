@@ -17,7 +17,14 @@ function renderDiagram() {
   );
   const width = (rounds.length + 2) * pitch + 20;
   const height = areaHeight + 120;
-  if (diagramZoom === null) diagramZoom = innerWidth >= 760 ? Math.min(1, (document.querySelector(".workspace").clientWidth - 18) / width) : 1;
+  if (diagramZoom === null)
+    diagramZoom =
+      innerWidth >= 760
+        ? Math.min(
+            1,
+            (document.querySelector(".workspace").clientWidth - 18) / width,
+          )
+        : 1;
   const positions = new Map(),
     groupPositions = new Map();
   let nodes = [],

@@ -1033,6 +1033,13 @@ nav {
   outline-offset: 3px;
 }
 
-.workspace.diagram-mode {grid-template-columns:minmax(0,1fr);}
-.workspace.diagram-mode aside {display:none;}
-nav button.active {border-bottom-color:var(--accent);color:#ff99ab;}
+.workspace.diagram-mode {
+  grid-template-columns: minmax(0, 1fr);
+}
+.workspace.diagram-mode aside {
+  display: none;
+}
+nav button.active {
+  border-bottom-color: var(--accent);
+  color: #ff99ab;
+}
