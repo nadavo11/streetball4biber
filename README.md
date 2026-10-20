@@ -1,4 +1,4 @@
-# Biber Streetball
+# Streetball4Biber
 
 Live tournament frontend powered by Bracket.
 
