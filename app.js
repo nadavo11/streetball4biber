@@ -90,7 +90,13 @@ const role = () =>
 const canScore = () => ["OWNER", "COLLABORATOR"].includes(role());
 function team(m, n) {
   let i = m["stage_item_input" + n];
-  if(i?.winner_from_stage_item_id && !i.team) return (allItems().find(g=>g.id===i.winner_from_stage_item_id)?.name||"Group")+" #"+i.winner_position;
+  if (i?.winner_from_stage_item_id && !i.team)
+    return (
+      (allItems().find((g) => g.id === i.winner_from_stage_item_id)?.name ||
+        "Group") +
+      " #" +
+      i.winner_position
+    );
   return (
     i?.team?.name ||
     (m["stage_item_input" + n + "_winner_from_match_id"]
@@ -122,7 +128,14 @@ function render() {
       : "Every result. Every team. One shared tournament.";
   $("#feed-title").textContent = tr("The latest");
   $("#admin").hidden = role() !== "OWNER";
-  $("#tabs").innerHTML = ["Groups", "Matches", "Standings", "Knockout", "Diagram"]
+  $(".workspace").classList.toggle("diagram-mode", tab === "Diagram");
+  $("#tabs").innerHTML = [
+    "Groups",
+    "Matches",
+    "Standings",
+    "Knockout",
+    "Diagram",
+  ]
     .map(
       (t) =>
         `<button class="${t === tab ? "active" : ""}" data-tab="${t}">${tr(t)}</button>`,

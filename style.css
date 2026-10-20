@@ -798,12 +798,241 @@ form button[type="submit"] {
   }
 }
 
-dialog { background:var(--surface); }
-nav {overflow-x:auto;white-space:nowrap;}
-.hero {background:radial-gradient(ellipse at 95% 10%,#6a152c 0,transparent 57%),linear-gradient(120deg,#31121e,#1d1119);}
-.hero-mark{font-family:Arial,sans-serif;}
-.brand span{margin-inline-start:5px;}
-@media(max-width:760px){.brand{font-size:23px;line-height:1}.brand span{display:block;font-size:9px;letter-spacing:1.2px;margin:4px 0 0;text-transform:uppercase}.brand i{display:none;}nav{gap:20px;}nav button{flex-shrink:0;}}
+dialog {
+  background: var(--surface);
+}
+nav {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.hero {
+  background:
+    radial-gradient(ellipse at 95% 10%, #6a152c 0, transparent 57%),
+    linear-gradient(120deg, #31121e, #1d1119);
+}
+.hero-mark {
+  font-family: Arial, sans-serif;
+}
+.brand span {
+  margin-inline-start: 5px;
+}
+@media (max-width: 760px) {
+  .brand {
+    font-size: 23px;
+    line-height: 1;
+  }
+  .brand span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    margin: 4px 0 0;
+    text-transform: uppercase;
+  }
+  .brand i {
+    display: none;
+  }
+  nav {
+    gap: 20px;
+  }
+  nav button {
+    flex-shrink: 0;
+  }
+}
 
 /* The connected tournament diagram uses the persisted Bracket dependency IDs. */
-.diagram-controls{display:flex;gap:7px;align-items:center}.diagram-controls button{min-height:36px;padding:6px 12px;font-size:11px}.diagram-controls output{min-width:36px;text-align:end;color:var(--muted);font-size:11px}.diagram-help{line-height:1.6}.diagram-scroll{overflow:auto;max-width:100%;border:1px solid var(--line);border-radius:10px;background:radial-gradient(#45313e 1px,transparent 1px),#141116;background-size:20px 20px;direction:ltr}.diagram-sized{position:relative}.diagram-canvas{position:absolute;top:0;left:0;transform-origin:top left;text-align:left;color:var(--ink);font-size:12px}.diagram-links{position:absolute;inset:0;pointer-events:none;overflow:visible}.diagram-links path{fill:none;stroke:#a7465b;stroke-width:2;stroke-linejoin:round}.diagram-links .qualification-link{stroke:#68434e;stroke-dasharray:5 5}.diagram-column-label{position:absolute;top:22px;width:220px;color:#e8c5ce;font-size:10px;letter-spacing:1.4px;font-weight:700}.diagram-group,.diagram-match,.diagram-champion{position:absolute;background:#211820;border:1px solid #633344;border-radius:9px;box-shadow:0 7px 15px #0003}.diagram-group{padding:10px 12px}.diagram-group-title{border:0;background:none;min-height:24px;padding:0 0 7px;width:100%;display:flex;justify-content:space-between;font-size:12px;color:#ff8da1}.diagram-group-title:hover{background:none;border:0}.diagram-group ol{list-style:none;margin:0;padding:0}.diagram-group li{display:flex;gap:7px;align-items:center;font-size:10px;line-height:23px;color:#b3a4ad}.diagram-group li.advancing{color:#f4e9ef}.diagram-rank{width:14px;color:#b96074}.diagram-group li span:nth-child(2){flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.diagram-group li b{font-size:10px}.diagram-match{padding:9px 12px;background:#211a23}.diagram-match-head{display:flex;align-items:center;justify-content:space-between;color:#a58d9d;font-size:9px;margin-bottom:6px}.diagram-match-head .badge{padding:3px 5px;font-size:8px}.diagram-team{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;min-height:25px}.diagram-team span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:165px}.diagram-team b{font-size:13px}.diagram-team.winner{color:#ff8da1;font-weight:700}.diagram-edit{position:absolute;right:6px;bottom:-14px;border-color:#7b354b;min-height:28px;padding:0 7px;background:#411e2c;color:#ffd4df}.diagram-champion{padding:16px;background:linear-gradient(140deg,#5a162b,#2c1420);border-color:#d44b69;display:flex;flex-direction:column;gap:8px}.diagram-champion>span{color:#ff718d;font-size:25px}.diagram-champion strong{font-size:13px;line-height:1.5}.diagram-champion small{font-size:10px;color:#d0b4c0}.diagram-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.diagram-controls {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.diagram-controls button {
+  min-height: 36px;
+  padding: 6px 12px;
+  font-size: 11px;
+}
+.diagram-controls output {
+  min-width: 36px;
+  text-align: end;
+  color: var(--muted);
+  font-size: 11px;
+}
+.diagram-help {
+  line-height: 1.6;
+}
+.diagram-scroll {
+  overflow: auto;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: radial-gradient(#45313e 1px, transparent 1px), #141116;
+  background-size: 20px 20px;
+  direction: ltr;
+}
+.diagram-sized {
+  position: relative;
+}
+.diagram-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  text-align: left;
+  color: var(--ink);
+  font-size: 12px;
+}
+.diagram-links {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.diagram-links path {
+  fill: none;
+  stroke: #a7465b;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.diagram-links .qualification-link {
+  stroke: #68434e;
+  stroke-dasharray: 5 5;
+}
+.diagram-column-label {
+  position: absolute;
+  top: 22px;
+  width: 220px;
+  color: #e8c5ce;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+}
+.diagram-group,
+.diagram-match,
+.diagram-champion {
+  position: absolute;
+  background: #211820;
+  border: 1px solid #633344;
+  border-radius: 9px;
+  box-shadow: 0 7px 15px #0003;
+}
+.diagram-group {
+  padding: 10px 12px;
+}
+.diagram-group-title {
+  border: 0;
+  background: none;
+  min-height: 24px;
+  padding: 0 0 7px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #ff8da1;
+}
+.diagram-group-title:hover {
+  background: none;
+  border: 0;
+}
+.diagram-group ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.diagram-group li {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 10px;
+  line-height: 23px;
+  color: #b3a4ad;
+}
+.diagram-group li.advancing {
+  color: #f4e9ef;
+}
+.diagram-rank {
+  width: 14px;
+  color: #b96074;
+}
+.diagram-group li span:nth-child(2) {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.diagram-group li b {
+  font-size: 10px;
+}
+.diagram-match {
+  padding: 9px 12px;
+  background: #211a23;
+}
+.diagram-match-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #a58d9d;
+  font-size: 9px;
+  margin-bottom: 6px;
+}
+.diagram-match-head .badge {
+  padding: 3px 5px;
+  font-size: 8px;
+}
+.diagram-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  min-height: 25px;
+}
+.diagram-team span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 165px;
+}
+.diagram-team b {
+  font-size: 13px;
+}
+.diagram-team.winner {
+  color: #ff8da1;
+  font-weight: 700;
+}
+.diagram-edit {
+  position: absolute;
+  right: 6px;
+  bottom: -14px;
+  border-color: #7b354b;
+  min-height: 28px;
+  padding: 0 7px;
+  background: #411e2c;
+  color: #ffd4df;
+}
+.diagram-champion {
+  padding: 16px;
+  background: linear-gradient(140deg, #5a162b, #2c1420);
+  border-color: #d44b69;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.diagram-champion > span {
+  color: #ff718d;
+  font-size: 25px;
+}
+.diagram-champion strong {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.diagram-champion small {
+  font-size: 10px;
+  color: #d0b4c0;
+}
+.diagram-scroll:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.workspace.diagram-mode {grid-template-columns:minmax(0,1fr);}
+.workspace.diagram-mode aside {display:none;}
+nav button.active {border-bottom-color:var(--accent);color:#ff99ab;}
