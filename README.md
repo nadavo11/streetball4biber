@@ -6,4 +6,4 @@ Corresponding full source, backend, tests and upstream attribution: https://gith
 
 AGPL-3.0. Original Bracket by Erik Vroon and contributors.
 
-This frontend uses the shared PostgreSQL-backed API hosted on the tournament computer. The host and HTTPS tunnel must stay online. Refresh the backend address by running `tools/publish_frontend.py` from the main source checkout after renewing its tunnel.
+The backend and PostgreSQL run on Render Free at https://streetball4biber.onrender.com. The user's computer and a tunnel are not required. The free service sleeps on inactivity; export results after the weekend before the database expires.
