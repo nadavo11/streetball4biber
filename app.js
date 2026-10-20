@@ -261,6 +261,7 @@ function render() {
       (b.onclick = () => {
         courtMatchId = Number(b.dataset.openCourt);
         courtState = null;
+        courtSelected = { 1: null, 2: null };
         tab = "Live Court";
         const address = new URL(location.href);
         address.searchParams.set("view", "live");

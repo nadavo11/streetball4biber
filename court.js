@@ -385,6 +385,7 @@ function courtControl(kind, side) {
 
 function courtSetup() {
   const g = courtState.game;
+  const version = courtState.version;
   modal(
     `<h2>${ct("Game setup")}</h2><p>Choose your scoring format before recording plays. Start the optional clock only when you are ready to run it.</p><form id="court-setup"><label>Scoring preset<select name="profile"><option value="standard" ${g.profile === "standard" ? "selected" : ""}>Basketball · 2 / 3 points + free throws</option><option value="streetball" ${g.profile === "streetball" ? "selected" : ""}>Streetball / 3×3 · 1 / 2 points + free throws</option></select></label><label>Periods for basketball<select name="period_count"><option value="4" ${g.period_count === 4 ? "selected" : ""}>4 quarters</option><option value="2" ${g.period_count === 2 ? "selected" : ""}>2 halves</option><option value="1" ${g.period_count === 1 ? "selected" : ""}>1 period</option></select></label><label>Minutes per period<input name="minutes" type="number" min="1" max="60" value="${g.period_seconds / 60}" required></label><p class="muted">Streetball uses one period. The next period after regulation is overtime; finish is always confirmed manually.</p><button type="submit">Save game setup</button></form>`,
   );
@@ -394,7 +395,7 @@ function courtSetup() {
     $("#dialog").close();
     courtAddPlay("profile", null, {
       player_id: null,
-      version: courtState.version,
+      version,
       profile: f.get("profile"),
       period_count: Number(f.get("period_count")),
       period_seconds: Number(f.get("minutes")) * 60,
@@ -404,6 +405,7 @@ function courtSetup() {
 
 function courtSetClock() {
   const total = Math.ceil(courtState.clock.remaining_ms / 1000);
+  const version = courtState.version;
   modal(
     `<h2>${ct("Set clock")}</h2><form id="court-clock-form"><div class="form-row"><label>Minutes<input name="minutes" type="number" min="0" max="120" value="${Math.floor(total / 60)}" required></label><label>Seconds<input name="seconds" type="number" min="0" max="59" value="${total % 60}" required></label></div><button type="submit">Set remaining time</button></form>`,
   );
@@ -413,7 +415,7 @@ function courtSetClock() {
     $("#dialog").close();
     courtAddPlay("set_clock", null, {
       player_id: null,
-      version: courtState.version,
+      version,
       seconds: Number(f.get("minutes")) * 60 + Number(f.get("seconds")),
     });
   };
@@ -421,6 +423,7 @@ function courtSetClock() {
 
 function courtFinish() {
   const m = courtState.match;
+  const version = courtState.version;
   modal(
     `<h2>${ct("Finish game")}</h2><p>${esc(m.home)} <strong>${m.home_score} – ${m.away_score}</strong> ${esc(m.away)}</p><p>Confirm the final score to update the standings and advance knockout winners.</p><form id="court-finish-form">${m.type === "SINGLE_ELIMINATION" && m.home_score === m.away_score ? `<label>Penalty / overtime winner<select name="winner" required><option value="">Choose a winner</option><option value="1">${esc(m.home)}</option><option value="2">${esc(m.away)}</option></select></label>` : ""}<button type="submit">Confirm final result</button></form>`,
   );
@@ -430,7 +433,7 @@ function courtFinish() {
     $("#dialog").close();
     courtAddPlay("finish", null, {
       player_id: null,
-      version: courtState.version,
+      version,
       tiebreak_winner: f.get("winner") ? Number(f.get("winner")) : null,
     });
   };
