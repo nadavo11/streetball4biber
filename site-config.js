@@ -1,1 +1,1 @@
-window.BIBER_API_ORIGIN = "https://centers-tutorial-understand-spouse.trycloudflare.com";
+window.BIBER_API_ORIGIN = "https://streetball4biber.onrender.com";
